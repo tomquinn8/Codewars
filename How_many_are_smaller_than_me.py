@@ -4,12 +4,12 @@ import random
 import datetime
 
 def smaller(arr):
-    ret = []
-    while arr:
-        ret.append(len([j for j in arr if j < arr[0]]))
-        arr.remove(arr[0])
+    ret = [i - 1 for i in range(len(arr), 0, -1)]
+    for i in range(len(arr) - 1):
+        for j in range(i + 1):
+            if arr[j] <= arr[i + 1]:
+                ret[j] -= 1
     return ret
-
 
 
 
